@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1747057460 source:d:\vcoplabbabenko3\main.cpp
+	<iostream>
+	<interface.h>
+
+1747058107 d:\vcoplabbabenko3\include\interface.h
+	<objbase.h>
+	<iostream>
+
+1747058107 source:d:\vcoplabbabenko3\src\interface.cpp
+	"interface.h"
+	<windows.h>
+
+1747059357 source:d:\vcoplabbabenko4\main.cpp
+	<iostream>
+	<interface.h>
+
+1747117452 d:\vcoplabbabenko4\include\interface.h
+	<objbase.h>
+	<iostream>
+
+1747117452 source:d:\vcoplabbabenko4\src\interface.cpp
+	"interface.h"
+	<windows.h>
+	<cassert>
+
