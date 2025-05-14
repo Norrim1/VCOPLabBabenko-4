@@ -4,7 +4,6 @@
 using namespace std;
 
 int main() {
-    SetConsoleOutputCP(1251);
     cout<<"Client: hello, world!"<<endl;
     cout<<"\nClient: get pointer to IUnknown"<<endl;
     IUnknown* pIUnknown = CreateInstance();
@@ -14,7 +13,6 @@ int main() {
     if (SUCCEEDED(hr)) {
         cout<<"Client: IX received successfully"<<endl;
         pIX->Fx();
-        pIX->Release();
     }
     cout<<"\nClient: get pointer to IY"<<endl;
     IY* pIY = NULL;
@@ -22,14 +20,12 @@ int main() {
     if (SUCCEEDED(hr)) {
         cout<<"Client: IY received successfully"<<endl;
         pIY->Fy();
-        pIY->Release();
     }
     cout<<"\nClient: get unsupported interface"<<endl;
     IZ* pIZ = NULL;
     hr = pIUnknown->QueryInterface(IID_IZ, (void**)&pIZ);
     if (SUCCEEDED(hr)) {
         cout<<"Client: interface IZ get successfully"<<endl;
-        pIZ->Release();
     } else {
         cout<<"Client: Can not get interface IZ"<<endl;
     }
@@ -39,7 +35,6 @@ int main() {
     if (SUCCEEDED(hr)) {
         cout<<"Client: IY through IX received successfully"<<endl;
         pIY->Fy();
-        pIY->Release();
     } else {
         cout<<"Client: Can not get interface IY through IX"<<endl;
     }
@@ -56,7 +51,7 @@ int main() {
     cout<<"\nClient: call f3 on pIX"<<endl;
     f3(pIX);
 
-    pIUnknown->Release();
+    delete pIUnknown;
 
     return 0;
 }
